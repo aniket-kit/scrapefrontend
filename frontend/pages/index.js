@@ -16,12 +16,14 @@ export default function Home() {
   }, []);
 
   const fetchData = async () => {
-    const res = await axios.get('http://localhost:5000/api/data');
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/data`
+);
     setData(res.data);
   };
 
 const handleScrape = async (url) => {
-  await axios.post('http://localhost:5000/api/scrape', { url });
+  await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/data`
+, { url });
   fetchData();
 };
 
